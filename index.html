@@ -1,0 +1,478 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+  <title>
+    UltrAvatar
+  </title>
+  <link rel="icon" href="icon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+   
+        
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/before_after.css">
+  <!-- <link rel="icon" href="./static/images/cameraicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="./static/css/magnify.css">
+  <script src="./static/js/jquery.magnify.js"></script>
+
+
+</head>
+
+<body>
+
+  <style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+    </style>
+
+  <section class="section">
+  <div class="container has-text-centered">
+    <!-- paper title -->
+    <p class="title is-3"> UltrAvatar: A Realistic Animatable 3D Avatar Diffusion Model with Authenticity Guided Textures </p>
+    <!-- publication -->
+    <!-- authors -->
+    <p class="title is-5 mt-2"> 
+      <a href="https://sites.google.com/view/mingyuan-zhou/home" target="_blank">Mingyuan Zhou*</a><sup>1</sup>, 
+      <a href="" target="_blank">Rakib Hyder*</a><sup>1</sup>,
+      <a href="" target="_blank">Ziwei Xuan</a><sup>1</sup>
+      <a href="http://maple-lab.net/gqi/" target="_blank">Guojun Qi</a><sup>1,2</sup>
+    </p>
+    <!-- affiliations -->
+    <p class="subtitle is-5">   
+      <th><sup>1</sup>OPPO Seattle Research Center, USA </th>
+      <th><sup>2</sup>Westlake University, China </th>
+      <th><sup>*</sup> Equal contributions</th>
+    </p>
+
+
+    <!-- other links -->
+    <div class="is-flex is-justify-content-center">
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="" role="button" target="_blank"> <span class="icon"> <ion-icon name="document-outline"></ion-icon> </span> <span> Arxiv </span>  </a> 
+      </span>
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-github"></ion-icon> </span> <span> Code (Coming Soon) </span> </a> 
+      </span>
+    </div>
+    <br>
+    <img class="summary-img" src="Imgs/teaser.png" style="width:100%;">
+    <video muted controls autoplay loop> <source src="animations/ani_7.mp4" type="video/mp4"> </video> 
+    <!--video  width="100%" loop autoplay muted-->
+      <!--source src="animations/open.mp4" type="video/mp4"-->
+    <!--/video-->
+
+    <h1 style="text-align:center"><em> UltrAvatar. Our method takes a text prompt or a single image as input to generate realistic and animatable 3D Avatars with PBR textures, compatible with various rendering engines.</em></h3>
+  </div>
+
+  <!-- main container -->
+  <div class="container">
+
+    <!-- abstract -->
+    <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <p class="content is-size-6 has-text-left">
+      Recent advances in 3D avatar generation have gained significant attentions. These breakthroughs aim to produce more realistic animatable avatars, narrowing the gap between virtual and real-world experiences. Most of existing works employ Score Distillation Sampling (SDS) loss, combined with a differentiable renderer and text condition, to guide a diffusion model in generating 3D avatars. However, SDS often generates oversmoothed results with few facial details, thereby lacking the diversity compared with ancestral sampling. On the other hand, other works generate 3D avatar from a single image, where the challenges of unwanted lighting effects, perspective views, and inferior image quality make them difficult to reliably reconstruct the 3D face meshes with the aligned complete textures. In this paper, we propose a novel 3D avatar generation approach termed UltrAvatar with enhanced fidelity of geometry, and superior quality of physically based rendering (PBR) textures without unwanted lighting. To this end, the proposed approach presents a diffuse color extraction model and an authenticity guided texture diffusion model. The former removes the unwanted lighting effects to reveal true diffuse colors so that the generated avatars can be rendered under various lighting conditions. The latter follows two gradient-based guidances for generating PBR textures to render diverse face-identity features and details better aligning with 3D mesh geometry. We demonstrate the effectiveness and robustness of the proposed method, outperforming the state-of-the-art methods by a large margin in the experiments.
+    </p>
+
+
+    <p class="title is-3 mt-5 has-text-centered"> Overview </p>
+
+    <img class="summary-img" src="Imgs/overview.png" style="width:100%;">
+    <br>
+    <p class="content is-size-6 has-text-left">
+    We first feed a text prompt into a generic diffusion model to produce a face image. Alternatively, the face image can also be directly input into our framework. 
+    Second, our diffuse color extraction (DCE) model takes the face image to extract its diffuse colors by eliminating lighting. The diffuse image is then passed to the mesh generator and the edge detector to generate the 3D mesh, camera parameters and the edge image. 
+    With these predicted values, the initial texture and the corresponding visibility mask can be created by texture mapping. 
+    Lastly, we input the masked initial texture into our authenticity guided texture diffusion model (AGT-DM) to generate the PBR textures. 
+    The generated animatable 3D avatars equipped with PBR textures are compatible with various rendering engines for different applications.
+   </p>
+    <br>
+    
+    <!-- results (videos) -->
+    <p class="title is-3 mt-5 has-text-centered"> Results </p>
+      <p class="content has-text-left is-size-6">
+        All generated avatars are rendered in UE5 with their respective generated PBR textures.
+      </p>
+      
+      <div class="content has-text-justified">
+      <h3 class="title is-4">Text to Avatar Generation</h3>
+      </div>
+   
+      <p class="content has-text-left is-size-6">
+        We input the text prompts into the generic SD to create 2D face images. 
+        Our results showcase the reconstructed high-quality PBR textures which are also well-aligned with the meshes, exhibit high
+        fidelity, and maintain the identity. 
+        To illustrate the quality of our generation, we relight each 3D avatar under various environment maps.
+      </p>
+
+
+    <table class="table" style="height:100%;width:100%;">
+      <colgroup>
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+      </colgroup>
+      <tbody>
+        <tr> 
+          <th> <img class="image" src="Imgs/s1.png" style="width:100%;"> </th>
+          <th> <img class="image" src="Imgs/s2.png" style="width:100%;"> </th>
+          <th> <img class="image" src="Imgs/s3.png" style="width:100%;"> </th>
+        </tr>
+        <tr> 
+          <th> <video muted controls autoplay loop> <source src="videos_gen/our_2_new.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="videos_gen/mid_m.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="videos_gen/our_4_n.mp4" type="video/mp4"> </video> </th>
+        </tr>
+    </table>
+
+    <table class="table" style="height:100%;width:100%;">
+      <colgroup>
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+      </colgroup>
+      <tbody>
+        <tr> 
+          <th> <img class="image" src="Imgs/s4.png" style="width:100%;"> </th>
+          <th> <img class="image" src="Imgs/s5.png" style="width:100%;"> </th>
+          <th> <img class="image" src="Imgs/s6.png" style="width:100%;"> </th>
+        </tr>
+        <tr> 
+          <th> <video muted controls autoplay loop> <source src="videos_gen/our_3_new.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="videos_gen/our_6.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="videos_gen/our_5_new.mp4" type="video/mp4"> </video> </th>
+        </tr>
+    </table>
+
+    <div class="content has-text-justified">
+      <h3 class="title is-4">Relighting Results</h3>
+    </div>
+   
+    <table class="table" style="height:100%;width:100%;">
+      <colgroup>
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+      </colgroup>
+      <tbody>
+        <tr> 
+          <tr> 
+            <th> <img class="image" src="Imgs/re1.png" style="width:80%;"> </th>
+            <th> <img class="image" src="Imgs/re2.png" style="width:80%;"> </th>
+            <th> <img class="image" src="Imgs/re3.png" style="width:80%;"> </th>
+          </tr>
+          <th> <video muted controls autoplay loop> <source src="videos_relight/our_1_new.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="videos_relight/our_9_new.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="videos_relight/our_10.mp4" type="video/mp4"> </video> </th>
+        </tr>
+
+    </table>
+
+
+          
+    <div class="content has-text-justified">
+      <h3 class="title is-4 has-text-centered">Celebrities Generation</h3>
+    </div>
+   
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/leo.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/leo.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+    
+                   
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/brad.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/brad.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+                    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/oprah.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/our_7.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+                    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/tom.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_relight/tom.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+                    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/will.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_relight/will.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+                    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/mark.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_relight/zuc.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div  class="columns is-centered has-text-centered" style="text-align: center;">  
+           <p><br/>Our framework can generate animatable celebrities with high quality and fieldity through the input of text prompts.</p> </div>
+      </div>
+    </section>
+
+   
+
+    <div class="content has-text-justified">
+      <h3 class="title is-4 has-text-centered">Out-of-Domain Generation</h3>
+    </div>
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+                   
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/joker.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/joker.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/fiona.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/fiona.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/raya.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_relight/raya.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/hiccup.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/hipccup.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+
+
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/elsa.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/elsa.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+
+                                
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/bat.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/batman.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/night.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_relight/night_king_new.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+
+
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/woody.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/woody.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+
+            
+                    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/green.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_gen/green.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+                    
+            <div class="active dropdown-toggle">
+              <th> <img class="image" src="Imgs/spider.png" style="width:80%;"> </th>
+              <video poster="" id="img_pearl" autoplay controls muted loop playsinline height="100%">
+                <source src="videos_relight/spider.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            
+
+          </div>
+        </div>
+        <div  class="columns is-centered has-text-centered" style="text-align: center;">  
+           <p><br/>Our framework has capability to generate out-of-domain cartoon characters or non-human avatars.</p> </div>
+      </div>
+    </section>
+
+
+    <!-- comparison -->
+    <p class="title is-3 mt-5 has-text-centered"> Texture Editing Results</p>
+    <p class="content has-text-centered is-size-5">
+    <img class="summary-img" src="Imgs/avatar_editing .png" style="width:100%;">
+    <div  class="columns is-centered has-text-centered" style="text-align: center;">  
+      <p><br/> Our authenticity guided texture diffusion model (AGT-DM) has capability to execute texture editing, editing results are shown here, 
+        including changing eye and hair colors, aging effects, and adding tattoos.</p> </div>
+    <br>
+    </p>
+    <br><br>
+
+
+
+
+
+    <p class="title is-3 mt-5 has-text-centered"> Animation </p>
+    <p class="content has-text-centered is-size-5">
+      <video muted controls autoplay loop> <source src="animations/ani_6.mp4" type="video/mp4"> </video> 
+      <video muted controls autoplay loop> <source src="animations/res_c.mp4" type="video/mp4"> </video> 
+    </p>
+    <br><br>
+
+
+    <br><br>
+    <!-- comparison -->
+    <!--p class="title is-3 mt-5 has-text-centered"> Comparison </p>
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="summary-img" src="Imgs/avatar_editing .png" style="width:100%;">
+        </div>
+        <div class="carousel-item">
+          <img class="summary-img" src="Imgs/avatar_editing .png" style="width:100%;">
+        </div>
+        <div class="carousel-item">
+          <img class="summary-img" src="Imgs/avatar_editing .png" style="width:100%;">
+        </div>
+      </div>
+    </div-->
+    
+    
+
+    <!-- citation -->
+    <div class="card mt-4">
+      <header class="card-header">
+        <p class="card-header-title"> Citation </p>
+      </header>
+      <div class="card-content is-size-6 has-text-left">
+<pre><code>@article{xxxx,
+  title={UltrAvatar: A Realistic Animatable 3D Avatar Diffusion Model with Authenticity Guided Textures},
+  author={xxx},
+  journal={xxx},
+  year={2024}}
+</code></pre>
+      </div>
+    </div>
+  </div>
+
+
+  </section>
+
+
+
+
+
+  
+</body>
+
+
+<script>
+  var videos = document.getElementsByClassName("clickplay");
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].addEventListener("click", function() {
+      this.play();
+    });
+    videos[i].addEventListener("ended", function() {
+      this.pause();
+      this.currentTime = 0;
+    });
+  }
+  
+  document.querySelectorAll('.info-container').forEach(function(container) {
+    container.addEventListener('mouseover', function() {
+      var infoText = container.querySelector('.info-text');
+      infoText.style.display = 'block';
+    });
+  
+    container.addEventListener('mouseout', function() {
+      var infoText = container.querySelector('.info-text');
+      infoText.style.display = 'none';
+    });
+  });
+</script>
+</html>
